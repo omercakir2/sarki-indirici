@@ -58,7 +58,7 @@ class JobsIn(BaseModel):
 async def status():
     return {
         "app": config.APP_NAME,
-        "download_dir": str(config.DOWNLOAD_DIR),
+        "download_dir": config.DOWNLOAD_DIR_LABEL or str(config.DOWNLOAD_DIR),
         "can_open_folder": config.CAN_OPEN_FOLDER,
         "desktop": config.FROZEN,
         **tools.state.public(),
@@ -173,7 +173,7 @@ async def open_folder(job_id: str | None = None):
         cmd = ["explorer", f"/select,{target}"] if target else ["explorer", str(folder)]
     else:
         cmd = ["xdg-open", str(folder)]
-    subprocess.Popen(cmd, env=tools.subprocess_env())
+    subprocess.Popen(cmd, env=tools.subprocess_env(), **tools.NO_WINDOW)
     return {"ok": True}
 
 

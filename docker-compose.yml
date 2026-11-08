@@ -1,0 +1,19 @@
+# Start:  docker compose up -d     →  http://localhost:8080
+# MP3s land in ./indirilenler next to this file.
+services:
+  sarki-indirici:
+    image: ghcr.io/omercakir2/sarki-indirici:latest
+    build: .
+    container_name: sarki-indirici
+    restart: unless-stopped
+    ports:
+      # Only reachable from this computer. Use "8080:8080" to open it to your home network.
+      - "127.0.0.1:8080:8080"
+    volumes:
+      - ./indirilenler:/downloads
+      - sarki-data:/data
+    environment:
+      SARKI_DOWNLOAD_DIR_LABEL: "indirilenler klasörü (docker-compose.yml'nin yanında)"
+
+volumes:
+  sarki-data:

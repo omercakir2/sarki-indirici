@@ -21,6 +21,7 @@ import platform
 import re
 import shutil
 import stat
+import subprocess
 import urllib.request
 import zipfile
 from dataclasses import dataclass, field
@@ -58,6 +59,12 @@ def subprocess_env() -> dict[str, str]:
             env.pop(key, None)
     env["PYTHONIOENCODING"] = "utf-8"
     return env
+
+
+# Keep Windows from flashing a console window for every yt-dlp/ffmpeg run.
+NO_WINDOW: dict = (
+    {"creationflags": subprocess.CREATE_NO_WINDOW} if config.SYSTEM == "Windows" else {}
+)
 
 
 def which(name: str) -> str | None:
@@ -185,6 +192,7 @@ async def _run(*args: str, timeout: float = 120) -> tuple[int, str]:
         stdout=asyncio.subprocess.PIPE,
         stderr=asyncio.subprocess.STDOUT,
         env=subprocess_env(),
+        **NO_WINDOW,
     )
     try:
         out, _ = await asyncio.wait_for(proc.communicate(), timeout)

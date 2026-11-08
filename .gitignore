@@ -24,3 +24,11 @@ downloads/
 .impeccable/config.local.json
 
 .DS_Store
+indirilenler/
+
+# impeccable design-process files (kept locally, not published)
+.impeccable/
+PRODUCT.md
+DESIGN.md
+desktop/bin/
+desktop/assets/

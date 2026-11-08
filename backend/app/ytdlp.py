@@ -127,6 +127,7 @@ async def _json(*args: str, timeout: float = 60) -> dict:
         stdout=asyncio.subprocess.PIPE,
         stderr=asyncio.subprocess.PIPE,
         env=tools.subprocess_env(),
+        **tools.NO_WINDOW,
     )
     try:
         out, err = await asyncio.wait_for(proc.communicate(), timeout)

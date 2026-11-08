@@ -7,7 +7,25 @@ YouTube linkini yapıştır, MP3 olarak indir. Reklam yok, hesap yok, her şey k
 - Canlı ilerleme, indirme kuyruğu, "klasörde göster"
 - İndirme motoru (yt-dlp) her açılışta kendini günceller
 
-> Durum: geliştirme aşamasında. Docker imajı ve çift tıkla açılan masaüstü uygulaması sıradaki adım.
+## İndir ve kullan
+
+**Masaüstü uygulaması (önerilen):** [Releases](https://github.com/omercakir2/sarki-indirici/releases/latest) sayfasından Windows için `.exe`, Mac için `.zip` dosyasını indir ve çift tıkla. Kurulum gerekmez. İlk açılıştaki güvenlik uyarısının nasıl geçileceği release notlarında anlatılıyor.
+
+**Docker:**
+
+```bash
+docker compose up -d
+```
+
+Sonra http://localhost:8080 adresini aç. Şarkılar `indirilenler/` klasörüne iner. İmaj: `ghcr.io/omercakir2/sarki-indirici`.
+
+## Yeni sürüm çıkarmak
+
+```bash
+git tag v0.2.0 && git push origin v0.2.0
+```
+
+GitHub Actions Windows ve Mac uygulamalarını ve Docker imajını derleyip Release'e ekler.
 
 ## Geliştirme
 
@@ -30,7 +48,7 @@ Ayarlar ortam değişkenleriyle değişir: `SARKI_DOWNLOAD_DIR` (varsayılan `~/
 ```
 backend/   FastAPI: arama, önizleme, indirme kuyruğu (SSE ile canlı durum), yt-dlp kurulum/güncelleme
 frontend/  Vite + React + Tailwind arayüz
-PRODUCT.md ürün tanımı · DESIGN.md görsel sistem
+desktop/   masaüstü başlatıcı (pywebview), PyInstaller ayarı, ffmpeg/deno indirme betiği
 ```
 
 ## Not

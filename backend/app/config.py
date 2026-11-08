@@ -30,6 +30,8 @@ def _default_download_dir() -> Path:
 
 DATA_DIR = Path(os.environ.get("SARKI_DATA_DIR", _default_data_dir()))
 DOWNLOAD_DIR = Path(os.environ.get("SARKI_DOWNLOAD_DIR", _default_download_dir()))
+# What to show the user as the download location (e.g. the host folder in Docker).
+DOWNLOAD_DIR_LABEL = os.environ.get("SARKI_DOWNLOAD_DIR_LABEL")
 
 # Directory holding bundled helper binaries (ffmpeg, ffprobe, deno).
 # In the desktop build PyInstaller unpacks them to <_MEIPASS>/bin.

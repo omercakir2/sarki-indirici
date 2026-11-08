@@ -167,6 +167,7 @@ class JobManager:
             stdout=asyncio.subprocess.PIPE,
             stderr=asyncio.subprocess.PIPE,
             env=tools.subprocess_env(),
+            **tools.NO_WINDOW,
         )
         self._procs[job.id] = proc
         stderr_chunks: list[str] = []
