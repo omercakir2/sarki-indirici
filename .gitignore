@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+
+# Node
+node_modules/
+frontend/dist/
+
+# Build outputs
+build/
+dist/
+*.spec.bak
+
+# Local data
+downloads/
+.data/
+
+# Third-party Claude skill (installed locally from pbakaus/impeccable)
+.claude/skills/
+
+# Impeccable runtime dirs
+.impeccable/config.local.json
+
+.DS_Store

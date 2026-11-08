@@ -1,0 +1,203 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-08T14:49:42.183676+00:00",
+  "title": "Design System: Bedava ve Reklamsız MP3 Şarkı İndirici",
+  "extensions": {
+    "colorMeta": {
+      "motorway-green": {
+        "role": "primary",
+        "displayName": "Motorway Green",
+        "canonical": "#0b6b3a",
+        "tonalRamp": [
+          "#06331c",
+          "#08482a",
+          "#0b6b3a",
+          "#0e7d45",
+          "#2f9a63",
+          "#62b98a",
+          "#a3d7b8",
+          "#e0f2e8"
+        ]
+      },
+      "intercity-blue": {
+        "role": "primary",
+        "displayName": "Intercity Blue",
+        "canonical": "#0a4f8f",
+        "tonalRamp": [
+          "#052646",
+          "#073766",
+          "#0a4f8f",
+          "#0d5fa8",
+          "#3a82c4",
+          "#73a7d8",
+          "#b0cdeb",
+          "#e6f0fa"
+        ]
+      },
+      "sign-yellow": {
+        "role": "secondary",
+        "displayName": "Sign Yellow",
+        "canonical": "#f2b705",
+        "tonalRamp": [
+          "#5a4400",
+          "#8a6800",
+          "#c29200",
+          "#f2b705",
+          "#ffc82e",
+          "#ffd866",
+          "#ffe8a3",
+          "#fff7dd"
+        ]
+      },
+      "signal-red": {
+        "role": "tertiary",
+        "displayName": "Signal Red",
+        "canonical": "#e0303f",
+        "tonalRamp": [
+          "#4f0d13",
+          "#7e1520",
+          "#b0202e",
+          "#e0303f",
+          "#ea6470",
+          "#f2949c",
+          "#ffb3ba",
+          "#ffe5e8"
+        ]
+      },
+      "night-asphalt": {
+        "role": "neutral",
+        "displayName": "Night Asphalt",
+        "canonical": "#0f1612"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Product name on the header sign."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section headings."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Song titles and button labels."
+      }
+    },
+    "shadows": [
+      {
+        "name": "sign-lift",
+        "value": "0 0 0 4px var(--sign-field), 0 22px 40px -24px rgb(0 0 0 / 0.75)",
+        "purpose": "Every sign panel; the first ring makes the white border read as inset."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out-expo",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Row lighting up as a sign (500ms), progress width (300ms), button colour (200ms)."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The one thing to press: Ara/Getir, İndir.",
+      "html": "<button class=\"ds-btn-primary\">İndir</button>",
+      "css": ".ds-btn-primary{background:#f2b705;color:#0f1612;font:900 1.25rem Overpass,system-ui,sans-serif;height:64px;padding:4px 32px 0;border:0;border-radius:12px;cursor:pointer;transition:background-color .2s cubic-bezier(.16,1,.3,1),transform .2s}.ds-btn-primary:hover{background:#ffc82e}.ds-btn-primary:active{transform:translateY(1px)}.ds-btn-primary:focus-visible{outline:3px solid #f2b705;outline-offset:3px}"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Per-result İndir.",
+      "html": "<button class=\"ds-btn-outline\">İndir</button>",
+      "css": ".ds-btn-outline{background:transparent;color:#f2f5f3;border:2px solid #8aa093;border-radius:12px;height:44px;padding:2px 16px 0;font:800 .9375rem Overpass,system-ui,sans-serif;cursor:pointer;transition:color .2s,border-color .2s}.ds-btn-outline:hover{border-color:#f2b705;color:#f2b705}.ds-btn-outline:focus-visible{outline:3px solid #f2b705;outline-offset:3px}"
+    },
+    {
+      "name": "Search Field",
+      "kind": "input",
+      "refersTo": "input-search",
+      "description": "White field on the motorway sign.",
+      "html": "<input class=\"ds-input-search\" placeholder=\"Link yapıştır ya da şarkı ara\">",
+      "css": ".ds-input-search{background:#fff;color:#0f1612;height:64px;width:100%;border:0;border-radius:12px;padding:4px 16px 0 20px;font:600 1.25rem Overpass,system-ui,sans-serif;caret-color:#f2b705}.ds-input-search::placeholder{color:#5d6b63}.ds-input-search:focus-visible{outline:3px solid #f2b705;outline-offset:3px}"
+    },
+    {
+      "name": "Motorway Sign",
+      "kind": "card",
+      "refersTo": "sign-motorway",
+      "description": "Header sign field with reflective border.",
+      "html": "<div class=\"ds-sign\"><strong>MP3 Şarkı İndirici</strong></div>",
+      "css": ".ds-sign{background:#0b6b3a;color:#fff;border:4px solid #fff;border-radius:18px;box-shadow:0 0 0 4px #0b6b3a,0 22px 40px -24px rgb(0 0 0/.75);padding:24px 32px;font:900 2rem Overpass,system-ui,sans-serif}"
+    },
+    {
+      "name": "Active Queue Row",
+      "kind": "custom",
+      "refersTo": "sign-intercity",
+      "description": "Signature: the downloading row lit as an intercity sign.",
+      "html": "<div class=\"ds-row\"><span class=\"ds-mark\"></span><div><b>Barış Manço – Gülpembe</b><small>İniyor %62, 2,4 MB/sn</small><i class=\"ds-bar\"><em style=\"width:62%\"></em></i></div><span class=\"ds-pct\">%62</span></div>",
+      "css": ".ds-row{display:grid;grid-template-columns:28px 1fr auto;gap:16px;align-items:center;background:#0a4f8f;color:#fff;border:4px solid #fff;border-radius:18px;box-shadow:0 0 0 4px #0a4f8f,0 22px 40px -24px rgb(0 0 0/.75);padding:12px 20px;font-family:Overpass,system-ui,sans-serif}.ds-row b{display:block;font-weight:800}.ds-row small{display:block;opacity:.85;font-size:.9375rem}.ds-mark{width:24px;height:24px;border:3px solid #fff;border-radius:50%;box-sizing:border-box}.ds-bar{display:block;height:8px;margin-top:8px;border-radius:99px;background:rgb(255 255 255/.2);overflow:hidden}.ds-bar em{display:block;height:100%;background:#f2b705}.ds-pct{font:900 1.5rem Overpass,sans-serif;font-variant-numeric:tabular-nums}"
+    },
+    {
+      "name": "Resting Queue Row",
+      "kind": "custom",
+      "refersTo": "queue-row",
+      "description": "Done/waiting rows on raised asphalt.",
+      "html": "<div class=\"ds-rest\"><span class=\"ds-done\"></span><div><b>Tarkan – Kuzu Kuzu</b><small>Tarkan – Kuzu Kuzu.mp3</small></div></div>",
+      "css": ".ds-rest{display:flex;gap:16px;align-items:center;background:#16211b;color:#f2f5f3;border-radius:16px;padding:16px 20px;font-family:Overpass,system-ui,sans-serif}.ds-rest b{display:block;font-weight:800}.ds-rest small{color:#b4c6bb;font-size:.9375rem}.ds-done{width:24px;height:24px;border-radius:50%;background:#fff;box-shadow:0 0 0 4px rgb(255 255 255/.15)}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Yol Levhası (The Road Sign)",
+    "overview": "The songs are going into the car, so the interface speaks the language of Turkish highway signage. The one thing you must read first, the link field, sits on a fully saturated motorway-green sign with a white reflective border. Everything else is night asphalt: quiet, dark, and easy to scan. Signage is the only world the app borrows, and it supplies four things: type, palette, density and one signature move. Layout and controls stay ordinary web controls that any non-technical user already knows.",
+    "keyCharacteristics": [
+      "One saturated sign field per job: green for input, blue for the active download.",
+      "A white reflective border inset from the field's edge, never a thin outline.",
+      "Overpass, from the Highway Gothic lineage, in heavy weights; tabular figures for every number.",
+      "Generous 64px controls for older, non-technical users.",
+      "Plain Turkish copy, never technical jargon."
+    ],
+    "rules": [
+      {
+        "name": "The Field Not Accent Rule",
+        "body": "Green and blue appear only as whole sign fields with the reflective border, never as a stray text colour or a thin stripe.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Lit Sign Rule",
+        "body": "Only active downloads use Intercity Blue. When nothing is downloading, the only sign on screen is the green header.",
+        "section": "colors"
+      },
+      {
+        "name": "The Step Scale Rule",
+        "body": "Sizes come only from the fixed scale (0.8125 / 0.9375 / 1.0625 / 1.25 / 1.5 / 2 / 2.75rem). Never introduce an in-between size.",
+        "section": "typography"
+      },
+      {
+        "name": "The Tabular Rule",
+        "body": "Percentages, times and counts always use tabular figures.",
+        "section": "typography"
+      }
+    ],
+    "dos": [
+      "Do give a new primary surface its own sign field with the reflective border.",
+      "Do keep every control at least 44px tall, and main actions at 56–64px.",
+      "Do write errors in plain Turkish that name the problem and what to do next.",
+      "Do use Lucide icons at a 2px stroke."
+    ],
+    "donts": [
+      "Don't put a small label or kicker above a heading. Supplementary plates sit beside the heading.",
+      "Don't use green or blue as text colour or as thin side stripes.",
+      "Don't light more than the active rows in intercity blue.",
+      "Don't use emoji or Unicode glyphs as icons."
+    ]
+  }
+}
