@@ -25,7 +25,7 @@ ARM = platform.machine().lower() in ("arm64", "aarch64")
 
 
 def fetch(url: str) -> bytes:
-    print(f"  ↓ {url}", flush=True)
+    print(f"  get {url}", flush=True)
     req = urllib.request.Request(url, headers={"User-Agent": "sarki-indirici-build"})
     with urllib.request.urlopen(req, timeout=600) as resp:
         return resp.read()
@@ -35,7 +35,7 @@ def save(name: str, data: bytes) -> None:
     path = BIN / name
     path.write_bytes(data)
     path.chmod(path.stat().st_mode | stat.S_IXUSR | stat.S_IXGRP | stat.S_IXOTH)
-    print(f"  ✓ {path.name} ({len(data) // 1_000_000} MB)", flush=True)
+    print(f"  ok  {path.name} ({len(data) // 1_000_000} MB)", flush=True)
 
 
 def from_zip(data: bytes, member_suffix: str) -> bytes:

@@ -54,11 +54,13 @@ jobs:
         run: pip install "fastapi>=0.115" "uvicorn>=0.32" "pywebview>=5.3" "pyinstaller>=6.10" "pillow>=10"
 
       - name: Fetch ffmpeg + deno, draw icon
+        shell: bash
         run: |
           python desktop/fetch_tools.py
           python desktop/make_icon.py
 
       - name: PyInstaller
+        shell: bash
         run: pyinstaller desktop/sarki.spec --noconfirm --workpath build --distpath dist
 
       - name: Package (macOS)
@@ -117,6 +119,7 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           path: assets
+          pattern: Sarki-Indirici-*
           merge-multiple: true
       - uses: softprops/action-gh-release@v2
         with:

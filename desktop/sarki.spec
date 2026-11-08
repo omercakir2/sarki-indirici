@@ -14,6 +14,11 @@ ROOT = HERE.parent
 IS_MAC = sys.platform == "darwin"
 IS_WIN = sys.platform == "win32"
 
+_tools = {p.name for p in (HERE / "bin").glob("*")}
+_need = {"ffmpeg", "ffprobe", "deno"}
+if not _need <= {n.removesuffix(".exe") for n in _tools}:
+    raise SystemExit(f"desktop/bin is missing tools (have {sorted(_tools)}); run desktop/fetch_tools.py")
+
 datas = [
     (str(ROOT / "frontend" / "dist"), "web"),
     (str(HERE / "bin"), "bin"),
